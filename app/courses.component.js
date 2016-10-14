@@ -23,14 +23,18 @@ System.register(['angular2/core', './course.service'], function(exports_1, conte
         execute: function() {
             /*Java Annotation = Decorators in Angular */
             /*The back tick allows the template to be broken into multiple lines */
+            /*Providers are like vars can pass any value into the Array. Here I am using it for
+            dependency injection of CourseService*/
             CoursesComponent = (function () {
                 function CoursesComponent(courseService) {
                     this.title = "This is the TITLE";
+                    this.courses = courseService.getCourses();
                 }
                 CoursesComponent = __decorate([
                     core_1.Component({
                         selector: 'courses',
-                        template: "\n    <h2>Courses</h2>\n    {{title}}\n    <ul>\n      <li *ngFor=\"#course of courses\">\n      {{courses}}\n      </li>\n    </ul>\n    "
+                        template: "\n    <h2>Courses</h2>\n    {{title}}\n    <ul>\n      <li *ngFor=\"#course of courses\">\n      {{courses}}\n      </li>\n    </ul>\n    ",
+                        providers: [course_service_1.CourseService]
                     }), 
                     __metadata('design:paramtypes', [course_service_1.CourseService])
                 ], CoursesComponent);
