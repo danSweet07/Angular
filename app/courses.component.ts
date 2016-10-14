@@ -1,7 +1,7 @@
 
 import {Component} from 'angular2/core'
 import {CourseService} from './course.service'
-
+import {AutoGrowDirective} from './auto-grow.directive'
 /*Java Annotation = Decorators in Angular */
 /*The back tick allows the template to be broken into multiple lines */
 /*Providers are like vars can pass any value into the Array. Here I am using it for
@@ -12,13 +12,15 @@ dependency injection of CourseService*/
   template: `
     <h2>Courses</h2>
     {{title}}
+    <input type="text" autoGrow />
     <ul>
       <li *ngFor="#course of courses">
       {{courses}}
       </li>
     </ul>
     `,
-    providers: [CourseService]
+    providers: [CourseService],
+    directives: [AutoGrowDirective]
 
 })
 
